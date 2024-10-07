@@ -6,4 +6,5 @@ const UserSchema = new mongoose.Schema({
     surname: { type: String, required: true }
 });
 
+// Export the User model
 module.exports = mongoose.model('User', UserSchema);
