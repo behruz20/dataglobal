@@ -3,20 +3,20 @@ const cors = require('cors');
 const connectDB = require('./config/database');
 const userRoutes = require('./routes/users');
 
-const ApiUrl = express();
+const app = express();
 
 // Connect to MongoDB
 connectDB();
 
 // Middleware
-ApiUrl.use(cors());
-ApiUrl.use(express.json());
+app.use(cors());
+app.use(express.json());
 
 // Routes
-ApiUrl.use('/users', userRoutes);
+app.use('/users', userRoutes);
 
 // Start the server
 const PORT = process.env.PORT || 5001; // Use environment port if available
-ApiUrl.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log(`Your API is running on port ${PORT}`);
 });
